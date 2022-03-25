@@ -50,9 +50,7 @@ const registrationAuth = (app) => {
         return res.send({ message: "Password did not match" });
       } else {
         const student_id = await saveStudent(student);
-        // console.log("student_id :>> ", student_id);
         res.send({ data: student_id, status: 201 });
-        console.log('data', data)
         const token = secretToken(student_id);
         return res.send({ error: null, token: token });
       }
